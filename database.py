@@ -1,19 +1,21 @@
 import bcrypt
 import mysql.connector
 import os
-
+from dotenv import load_dotenv
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CA_PATH = os.path.join(BASE_DIR, "ca.pem")
 
+load_dotenv()
+
 
 def get_db():
     return mysql.connector.connect(
-        host="mysql-2e900226-ainulhasan1999-7428.l.aivencloud.com",
-        port=15125,
-        user="avnadmin",
-        password="AVNS_jd6jADXVbRtsrci9dFh",
-        database="defaultdb",
+        host=os.getenv("DB_HOST"),
+        port=int(os.getenv("DB_PORT")),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        database=os.getenv("DB_NAME"),
         ssl_ca=CA_PATH,
     )
 
