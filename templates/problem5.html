@@ -1,156 +1,157 @@
-<!DOCTYPE html>
-<html>
-<head>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Login</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f7fa;
-            margin: 0;
-            padding: 2rem;
-            min-height: 100vh;
-        }
-
-        .login-container {
-            max-width: 400px;
-            margin: 2rem auto;
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #4a5568;
-            font-weight: 500;
-        }
-
-        input {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 6px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        input:focus {
-            outline: none;
-            border-color: #4299e1;
-            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
-        }
-
-        button {
-            width: 100%;
-            padding: 1rem;
-            background-color: #4299e1;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #3182ce;
-        }
-
-        .alert {
-            padding: 1rem;
-            border-radius: 6px;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .success {
-            background-color: #f0fff4;
-            color: #2f855a;
-            border: 1px solid #c6f6d5;
-        }
-
-        .error {
-            background-color: #fff5f5;
-            color: #c53030;
-            border: 1px solid #fed7d7;
-        }
-
-        .secondary-link {
-            text-align: center;
-            margin-top: 1.5rem;
-            color: #718096;
-        }
-
-        .secondary-link a {
-            color: #4299e1;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .secondary-link a:hover {
-            text-decoration: underline;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 1.5rem;
-            color: #718096;
-            text-decoration: none;
-        }
-
-        .back-link:hover {
-            color: #4299e1;
-        }
+      :root {
+        --primary: #3b82f6;
+        --error: #ef4444;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(135deg, #eff6ff, #dbeafe);
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 2rem;
+      }
+      .login-container {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        border-radius: 1.5rem;
+        padding: 3rem;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+        width: 100%;
+        max-width: 480px;
+      }
+      .back-link {
+        display: inline-block;
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+      }
+      h1 {
+        color: var(--primary);
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+      .alert {
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+      .success {
+        background: #f0fff4;
+        color: #065f46;
+        border: 2px solid #a7f3d0;
+      }
+      .error {
+        background: #fef2f2;
+        color: var(--error);
+        border: 2px solid #fecaca;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+      }
+      .form-group label {
+        margin-bottom: 0.5rem;
+        color: #1e293b;
+        font-weight: 500;
+      }
+      input {
+        width: 100%;
+        border: 2px solid #dbeafe;
+        border-radius: 0.75rem;
+        padding: 1rem;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+      input:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        outline: none;
+      }
+      button {
+        background: var(--primary);
+        color: white;
+        padding: 1rem;
+        border: none;
+        border-radius: 0.75rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 1rem;
+      }
+      button:hover {
+        opacity: 0.9;
+      }
+      .secondary-link {
+        text-align: center;
+        margin-top: 1.5rem;
+        color: #64748b;
+      }
+      .secondary-link a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 500;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="login-container">
-        <a href="/" class="back-link">← Back to Home</a>
-        <h1>Welcome Back</h1>
+      <a href="/" class="back-link">← Back to Home</a>
+      <h1>Welcome Back</h1>
 
-        {% if success %}
-        <div class="alert success">
-            {{ success }}<br>
-            <a href="/">Go to Home</a>
+      {% if success %}
+      <div class="alert success">
+        {{ success }}<br />
+        <a href="/">Go to Home</a>
+      </div>
+      {% endif %} {% if error %}
+      <div class="alert error">{{ error }}</div>
+      {% endif %}
+
+      <form method="post">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required />
         </div>
-        {% endif %}
 
-        {% if error %}
-        <div class="alert error">{{ error }}</div>
-        {% endif %}
-
-        <form method="post">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-
-            <button type="submit">Sign In</button>
-        </form>
-
-        <div class="secondary-link">
-            Don't have an account? <a href="/problem3">Create account</a><br>
-            <a href="#forgot-password">Forgot password?</a>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
         </div>
+
+        <button type="submit">Sign In</button>
+      </form>
+
+      <div class="secondary-link">
+        Don't have an account? <a href="/problem3">Create account</a><br />
+        <a href="#forgot-password">Forgot password?</a>
+      </div>
     </div>
-</body>
+  </body>
 </html>
